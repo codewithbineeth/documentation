@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S. Tulasi Das Documentation</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --gold: #C8922A;
+      --gold-light: #F2D6A0;
+      --deep: #0D1B2A;
+      --navy: #1A2E45;
+      --navy2: #243B55;
+      --cream: #FDF8F0;
+      --cream2: #F5EDD9;
+      --text: #1A1A1A;
+      --muted: #5C5C5C;
+      --white: #FFFFFF;
+      --green: #1B7A3E;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAV */
+    nav {
+      background: var(--deep);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 0;
+    }
+
+    .nav-logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--deep);
+    }
+
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .nav-logo-sub {
+      font-size: 10px;
+      color: var(--gold-light);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      background: var(--gold);
+      color: var(--deep);
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.85;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--deep) 0%, var(--navy2) 60%, #1d3a5c 100%);
+      padding: 70px 3rem 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 146, 42, 0.15);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: 40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(200, 146, 42, 0.1);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(200, 146, 42, 0.15);
+      border: 1px solid rgba(200, 146, 42, 0.4);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: #aac4e0;
+      font-weight: 300;
+      margin-bottom: 28px;
+      max-width: 500px;
+      line-height: 1.6;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .hero-stat-label {
+      font-size: 11px;
+      color: #8aadcc;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+
+    .hero-stat-div {
+      width: 1px;
+      background: rgba(200, 146, 42, 0.3);
+      align-self: stretch;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--deep);
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.88;
+    }
+
+    .btn-wa {
+      background: #25D366;
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s;
+      cursor: pointer;
+    }
+
+    .btn-wa:hover {
+      opacity: 0.88;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #ccc;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-info {
+      margin-top: 28px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .hero-info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #8aadcc;
+    }
+
+    .hero-info-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--cream2);
+      border-top: 1px solid #e0d0b0;
+      border-bottom: 1px solid #e0d0b0;
+      padding: 16px 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .trust-icon {
+      font-size: 18px;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 56px 3rem;
+    }
+
+    .section-alt {
+      background: var(--white);
+    }
+
+    .section-dark {
+      background: var(--deep);
+      color: var(--white);
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .section-sub {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 540px;
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    .section-dark .section-sub {
+      color: #8aadcc;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid #e5d9c0;
+      border-radius: 10px;
+      padding: 22px 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(200, 146, 42, 0.12);
+    }
+
+    .service-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(200, 146, 42, 0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .service-title {
+      font-weight: 600;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: var(--navy);
+    }
+
+    .service-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* PROCESS */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+
+    .process-step {
+      padding: 28px 20px;
+      position: relative;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--deep);
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .step-desc {
+      font-size: 13px;
+      color: #8aadcc;
+      line-height: 1.5;
+    }
+
+    .step-arrow {
+      position: absolute;
+      top: 35px;
+      right: -10px;
+      color: var(--gold);
+      font-size: 18px;
+      z-index: 1;
+    }
+
+    /* WHY CHOOSE */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .why-card {
+      border-left: 3px solid var(--gold);
+      padding: 18px 20px;
+      background: var(--cream2);
+      border-radius: 0 8px 8px 0;
+    }
+
+    .why-title {
+      font-weight: 600;
+      font-size: 14px;
+      margin-bottom: 5px;
+      color: var(--navy);
+    }
+
+    .why-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    /* CHECKLIST */
+    .checklist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .checklist-card {
+      background: var(--cream2);
+      border: 1px solid #e0d0b0;
+      border-radius: 10px;
+      padding: 22px;
+    }
+
+    .checklist-title {
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .checklist-title-icon {
+      font-size: 18px;
+    }
+
+    .checklist-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .checklist-items li {
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .check-dot {
+      width: 16px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+      font-size: 9px;
+      color: var(--deep);
+      font-weight: 700;
+    }
+
+    /* TESTIMONIALS */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(200, 146, 42, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 14px;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    .review-text {
+      font-size: 13px;
+      color: #b0c8e0;
+      line-height: 1.6;
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    .review-author {
+      font-size: 12px;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .contact-item-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(200, 146, 42, 0.12);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-item-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3px;
+    }
+
+    .contact-item-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .contact-map {
+      background: var(--cream2);
+      border: 1px solid #e0d0b0;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-placeholder {
+      text-align: center;
+    }
+
+    .map-placeholder p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* HOURS */
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 5px 0;
+      border-bottom: 1px solid #ece2cc;
+    }
+
+    .hour-day {
+      color: var(--muted);
+    }
+
+    .hour-time {
+      font-weight: 500;
+      color: var(--navy);
+    }
+
+    .hour-closed {
+      color: #cc4444;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--deep);
+      border-top: 2px solid var(--gold);
+      padding: 30px 3rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .footer-sub {
+      font-size: 12px;
+      color: #5a7a99;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: #7a9ab8;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: #3a5a74;
+    }
+
+    /* WHATSAPP FLOAT */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #25D366;
+      color: #fff;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+      cursor: pointer;
+      z-index: 999;
+      transition: transform 0.2s;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.08);
+    }
+
+    .wa-float-label {
+      position: absolute;
+      right: 64px;
+      background: var(--deep);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      border: 1px solid rgba(200, 146, 42, 0.3);
+    }
+
+    @media(max-width:640px) {
+      nav {
+        padding: 0 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 50px 1.5rem 40px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .hero-stats {
+        gap: 16px;
+      }
+
+      .section {
+        padding: 40px 1.5rem;
+      }
+
+      .trust-bar {
+        padding: 14px 1.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding: 24px 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">
+      <div class="nav-logo-icon">TD</div>
+      <div>
+        <div class="nav-logo-text">S. Tulasi Das</div>
+        <div class="nav-logo-sub">Documentation Services</div>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#checklist">Documents</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+919908314106" class="nav-cta">📞 Call Now</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">📍 Road No. 17 · Near SRO & MRO Office · Saroornagar</div>
+    <h1>Hyderabad's Most Trusted<br><span>Documentation Expert</span></h1>
+    <p class="hero-sub">LRS · BRS · Property Registration · House Permissions · Municipal Works · All Documentation
+      handled with honesty and expertise.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">15+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1000+</div>
+        <div class="hero-stat-label">Cases Handled</div>
+      </div>
+      <div class="hero-stat-div"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100%</div>
+        <div class="hero-stat-label">Honest Service</div>
+      </div>
+    </div>
+    <div class="hero-btns">
+      <a href="tel:+919032559972" class="btn-primary">📞 Call Now</a>
+      <a href="https://wa.me/919908314106" target="_blank" class="btn-wa">💬 WhatsApp</a>
+      <a href="#services" class="btn-ghost">View Services ↓</a>
+    </div>
+    <div class="hero-info">
+      <div class="hero-info-item">
+        <div class="hero-info-dot"></div>Mon – Sat: 9:30 AM – 7:00 PM
+      </div>
+      <div class="hero-info-item">
+        <div class="hero-info-dot"></div>Road No. 17, Saroornagar, Hyderabad
+      </div>
+      <div class="hero-info-item">
+        <div class="hero-info-dot"></div>Telugu & English spoken
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">🏛️</span> Official Document Writer — Near SRO Office</div>
+    <div class="trust-item"><span class="trust-icon">🤝</span> Transparent · No Hidden Fees</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Fast Processing · Expert Guidance</div>
+    <div class="trust-item"><span class="trust-icon">🌐</span> Telugu & English Service</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section section-alt" id="services">
+    <div class="section-label">What We Do</div>
+    <div class="section-title">Our Services</div>
+    <p class="section-sub">All documentation needs under one roof — handled professionally and honestly.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏘️</div>
+        <div class="service-title">LRS — Layout Regularisation</div>
+        <div class="service-desc">Complete assistance with Telangana LRS applications. We handle paperwork, submissions,
+          and follow-ups.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏗️</div>
+        <div class="service-title">BRS — Building Regularisation</div>
+        <div class="service-desc">Regularise your building structures under BRS scheme with expert guidance at every
+          step.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <div class="service-title">Property Registration</div>
+        <div class="service-desc">Sale deeds, gift deeds, GPA — all property registration work handled at the SRO
+          office.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <div class="service-title">House & Building Permissions</div>
+        <div class="service-desc">Get your construction and renovation permits approved smoothly through municipal
+          channels.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <div class="service-title">Municipal Works</div>
+        <div class="service-desc">Water connection, drainage NOC, trade licences, and all GHMC-related applications.
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📜</div>
+        <div class="service-title">Affidavits & Notary</div>
+        <div class="service-desc">Affidavits, declarations, power of attorney, and all notary document preparation.
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📑</div>
+        <div class="service-title">Encumbrance Certificate</div>
+        <div class="service-desc">EC extraction and verification to confirm your property is legally clear.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📕</div>
+        <div class="service-title">Pattadar Passbook & Title Deed</div>
+        <div class="service-desc">Land record corrections, Pattadar passbook, and title deed assistance.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section section-dark" id="process">
+    <div class="section-label" style="color:var(--gold);">Simple Process</div>
+    <div class="section-title" style="color:#fff;">How It Works</div>
+    <p class="section-sub">No confusion. No running around. We handle everything.</p>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Visit or Call Us</div>
+        <div class="step-desc">Walk in to our office on Road No. 17 or call/WhatsApp us to discuss your requirement.
+        </div>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Share Your Documents</div>
+        <div class="step-desc">Bring the required documents. We review everything and tell you exactly what is needed.
+        </div>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">We Handle Everything</div>
+        <div class="step-desc">We prepare, submit, and follow up with SRO, MRO, and GHMC on your behalf.</div>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Work Done ✓</div>
+        <div class="step-desc">You receive your completed documents. No stress, no confusion, no multiple visits.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE -->
+  <section class="section" id="why">
+    <div class="section-label">Why Us</div>
+    <div class="section-title">Why Choose S. Tulasi Das</div>
+    <p class="section-sub">Thousands of families in Saroornagar trust us for their most important property matters.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-title">📍 Prime Location — Right Next to SRO</div>
+        <div class="why-desc">Located opposite the MRO & SRO office on Road No. 17 — no travel delays, faster
+          processing.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">🤝 Completely Honest Service</div>
+        <div class="why-desc">We tell you exactly what is possible, what it costs, and how long it takes. No false
+          promises.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">📅 15+ Years of Experience</div>
+        <div class="why-desc">Deep expertise in Telangana land and documentation law. We've seen it all and solved it
+          all.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">🗣️ Telugu-Speaking Experts</div>
+        <div class="why-desc">Explain your situation comfortably in Telugu. We understand your needs clearly.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">⚡ Fast Turnaround</div>
+        <div class="why-desc">We know the processes inside out — your work gets done faster than anywhere else.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-title">💰 Fair Pricing</div>
+        <div class="why-desc">Transparent quotes upfront. No surprise charges. No middlemen. Pay only for what is done.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="section section-alt" id="checklist">
+    <div class="section-label">Be Prepared</div>
+    <div class="section-title">Document Checklists</div>
+    <p class="section-sub">Bring these documents and get your work done in one visit.</p>
+    <div class="checklist-grid">
+      <div class="checklist-card">
+        <div class="checklist-title"><span class="checklist-title-icon">🏘️</span> For LRS Application</div>
+        <ul class="checklist-items">
+          <li>
+            <div class="check-dot">✓</div>Original sale deed / title document
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Aadhaar card (buyer & seller)
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Encumbrance Certificate (EC)
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Layout plan / site plan
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Pattadar Passbook (if applicable)
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Property tax receipts
+          </li>
+        </ul>
+      </div>
+      <div class="checklist-card">
+        <div class="checklist-title"><span class="checklist-title-icon">📋</span> For Property Registration</div>
+        <ul class="checklist-items">
+          <li>
+            <div class="check-dot">✓</div>Draft sale deed (we can prepare)
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Aadhaar card + PAN card of both parties
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Passport size photos (2 each)
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Encumbrance Certificate
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Previous sale deeds / parent documents
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Property tax latest receipt
+          </li>
+        </ul>
+      </div>
+      <div class="checklist-card">
+        <div class="checklist-title"><span class="checklist-title-icon">🏠</span> For Building Permission</div>
+        <ul class="checklist-items">
+          <li>
+            <div class="check-dot">✓</div>Site plan / building plan
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Title document or sale deed
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Aadhaar card of owner
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Property tax receipt
+          </li>
+          <li>
+            <div class="check-dot">✓</div>NOC from neighbours (if required)
+          </li>
+        </ul>
+      </div>
+      <div class="checklist-card">
+        <div class="checklist-title"><span class="checklist-title-icon">📜</span> For Affidavit / Notary</div>
+        <ul class="checklist-items">
+          <li>
+            <div class="check-dot">✓</div>Aadhaar card
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Purpose / details of the affidavit
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Passport size photo
+          </li>
+          <li>
+            <div class="check-dot">✓</div>Any supporting documents (if needed)
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p style="margin-top:20px;font-size:13px;color:var(--muted);">📞 Not sure what you need? Just call or WhatsApp us —
+      we'll guide you before you visit.</p>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section section-dark" id="reviews">
+    <div class="section-label" style="color:var(--gold);">Client Reviews</div>
+    <div class="section-title" style="color:#fff;">What Clients Say</div>
+    <p class="section-sub">Real words from real clients in and around Saroornagar.</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Very good documentation office. Excellent communication and all our questions were
+          explained clearly. Highly recommend to anyone needing registration help."</div>
+        <div class="review-author">— Local Client, Saroornagar</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Honest and transparent. They told us the exact cost upfront and delivered everything
+          on time. A rare find in documentation work. Very satisfied."</div>
+        <div class="review-author">— Property Owner, Kothapet</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"We were very confused about our LRS process. Tulasi Das sir explained everything step
+          by step. Work was done smoothly. Great service!"</div>
+        <div class="review-author">— Family Client, Nagole</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Professional service at a very good price. The location next to the SRO office made
+          the registration process very smooth. Will come again."</div>
+        <div class="review-author">— Business Client, Dilsukhnagar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-alt" id="contact">
+    <div class="section-label">Visit Us</div>
+    <div class="section-title">Contact & Location</div>
+    <p class="section-sub">We are open Monday to Saturday. Walk in or contact us anytime.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Address</div>
+            <div class="contact-item-value">Road No. 17, Opp. MRO & SRO Office<br>Saroornagar, Hyderabad – 500035</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">Working Hours</div>
+            <div class="hours-grid">
+              <div class="hour-row"><span class="hour-day">Mon – Fri</span><span class="hour-time">9:30 AM – 7:00
+                  PM</span></div>
+              <div class="hour-row"><span class="hour-day">Saturday</span><span class="hour-time">9:30 AM – 7:30
+                  PM</span></div>
+              <div class="hour-row"><span class="hour-day">Sunday</span><span class="hour-closed">Closed</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🌐</div>
+          <div>
+            <div class="contact-item-label">Languages</div>
+            <div class="contact-item-value">Telugu · English</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+          <a href="tel:+919032559972" class="btn-primary" style="font-size:13px;padding:11px 20px;">📞 Call Now</a>
+          <a href="https://wa.me/919032559972" target="_blank" class="btn-wa"
+            style="font-size:13px;padding:11px 20px;">💬 WhatsApp</a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-map">
+          <div class="map-placeholder">
+            <div style="font-size:40px;">🗺️</div>
+            <p style="font-weight:600;color:var(--navy);margin-top:8px;">Road No. 17, Saroornagar
+          </div>
+          <p>Opp. MRO & SRO Office, Hyderabad</p>
+          <a href="https://maps.google.com/?q=S.Tulasi+Das+Document+Writer+Saroornagar+Hyderabad" target="_blank"
+            style="display:inline-block;margin-top:10px;background:var(--gold);color:var(--deep);font-size:12px;font-weight:600;padding:8px 16px;border-radius:6px;">Open
+            in Google Maps ↗</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">S. Tulasi Das Documentation Services</div>
+    <div class="footer-sub">Road No. 17, Saroornagar, Hyderabad · Est. 2009 · Trusted by thousands</div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#process">How It Works</a>
+      <a href="#checklist">Document Checklist</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2025 S. Tulasi Das Documentation. All rights reserved. · Saroornagar, Hyderabad,
+      Telangana.</div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <div class="wa-float" onclick="window.open('https://wa.me/919908314106','_blank')" title="Chat on WhatsApp">
+    <span style="font-size:26px;">💬</span>
+  </div>
+
+</body>
+
+</html>
